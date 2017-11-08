@@ -1,0 +1,5 @@
+echo $1
+echo $2
+echo $(grep -rl $1 . | grep -v \.git)
+#grep -rl $1 . | xargs sed -i 's/$1/$2/g'
+grep -rl $1 . | grep -v \.git | xargs sed -i 's/$1/$2/g'

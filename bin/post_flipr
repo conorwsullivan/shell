@@ -1,0 +1,5 @@
+#!/bin/bash
+venue_uuid=$(echo $1 | python -c 'import sys, uuid; print uuid.uuid5(uuid.NAMESPACE_OID, sys.stdin.readline().rstrip().lower())')
+echo $venue_uuid
+#curl -X POST 'localhost:14533/v1/flipr' --data '{"uuid": "$venue_uuid", "status": "$2"}'
+echo "curl -X POST 'localhost:14533/v1/flipr' -H '{Accept:application/json}' --data '{\"uuid\": \"$venue_uuid\", \"status\": \"$2\"}'"

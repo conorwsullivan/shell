@@ -1,0 +1,5 @@
+cd ~/work/
+cd Common.rb/eris_models/ext/java-wire-gen
+rake clean
+rake --trace
+

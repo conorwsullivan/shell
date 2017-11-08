@@ -1,0 +1,18 @@
+set editing-mode vi
+set show-all-if-ambiguous on
+set completion-ignore-case off
+
+$if mode=vi
+  set keymap vi-move
+  "gg": beginning-of-history
+  "G": end-of-history
+  "n": previous-history
+  "t": next-history
+  "s": forward-char
+  "\C-n": complete
+
+  set keymap vi-insert
+  "\t": vi-movement-mode
+  "\C-n": complete
+$endif
+

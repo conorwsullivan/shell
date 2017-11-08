@@ -1,0 +1,10 @@
+--sort-files
+--color
+
+--ignore-dir=dist
+--ignore-dir=dist-test
+--ignore-dir=dist-server
+--ignore-dir=dist-client
+--ignore-dir=coverage
+--ignore-dir=target
+

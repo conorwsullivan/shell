@@ -1,0 +1,177 @@
+let g:rust_recommended_style = 0
+execute pathogen#infect()
+
+if has("autocmd")
+  filetype on
+  filetype plugin on
+endif
+
+let mapleader = ","
+
+" fixing t to be l
+noremap l t
+
+" movement
+noremap h h
+noremap t k
+noremap n j
+noremap s l
+
+" disable cursor keys
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+nnoremap j n
+nnoremap k N
+imap <Left> <Nop>
+imap <Right> <Nop>
+imap <Up> <Nop>
+imap <Down> <Nop>
+
+" custom escape as tab
+inoremap <Tab> <Esc>
+inoremap <S-Tab> <Tab>
+nnoremap <S-Tab> >>
+
+" make open stay in normal mode
+" noremap o o<Esc>
+" noremap O O<Esc>
+noremap <CR> O<Esc>j
+noremap <S-Enter> o<Esc>k
+
+" enable space in normal mode
+nnoremap <space> i<space><Esc>l
+" enable backspace in normal mode
+nnoremap <backspace> hx
+
+" use PCRE
+"nnoremap / /\v
+"vnoremap / /\v
+
+" clear search highlight
+nnoremap <leader>/ :noh<cr>
+nnoremap <leader><space> 0d$
+nnoremap <leader><cr> g$i<cr><Esc>>>
+
+" Handling a common typo
+nnoremap ;w :w
+nnoremap ;q :q
+
+" insert a pry
+nnoremap <leader>p Orequire 'pry'; binding.pry<Esc>
+
+" Q as q, W as w
+cnoremap Q q
+cnoremap W w
+
+" prevent d from overwriting yanks
+nnoremap y "+y
+vnoremap y "+y
+nnoremap Y "+y$
+vnoremap Y "+y$
+nnoremap p "+p
+vnoremap p "+p
+nnoremap P "+P
+vnoremap P "+P
+for s:i in ['"','*','+','-','.',':','%','/','=','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  execute 'nnoremap "'.s:i.'y "'.s:i.'y'
+  execute 'vnoremap "'.s:i.'y "'.s:i.'y'
+  execute 'vnoremap "'.s:i.'d "'.s:i.'d'
+  execute 'nnoremap "'.s:i.'Y "'.s:i.'y$'
+  execute 'vnoremap "'.s:i.'Y "'.s:i.'y$'
+  execute 'vnoremap "'.s:i.'D "'.s:i.'d$'
+  execute 'nnoremap "'.s:i.'P "'.s:i.'P'
+  execute 'vnoremap "'.s:i.'P "'.s:i.'P'
+  execute 'nnoremap "'.s:i.'P "'.s:i.'P'
+  execute 'vnoremap "'.s:i.'P "'.s:i.'P'
+endfor
+
+" cut command
+nnoremap <leader>d "+d
+nnoremap <leader>D "+D
+vnoremap <leader>d "+d
+vnoremap <leader>D "+D
+
+nnoremap U <C-r>
+
+" splits shortcuts
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-t> <C-w>j
+nnoremap <C-n> <C-w>k
+nnoremap <C-s> <C-w>l
+
+set mouse=
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set noci
+set nosi
+set encoding=utf-8
+set splitright
+set smartcase
+set gdefault
+set virtualedit=block
+set shortmess+=I
+set linebreak
+set wrap
+set ruler
+set list listchars=tab:»\ ,trail:·
+set showmatch
+set noshowmode
+let g:gitgutter_diff_args = '-w'
+set relativenumber
+set number
+set showcmd
+set re=1
+set backspace=2
+set mouse=
+set ff=unix
+set fileformat=unix
+set fileformats=unix,dos
+
+set nobackup
+set noswapfile
+au FocusLost * :wa
+
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.shader set filetype=c
+
+"let g:airline_left_sep = "" "use double quotes here
+"let g:airline_left_alt_sep = ""
+"let g:airline_right_sep = ""
+"let g:airline_right_alt_sep = ""
+let g:airline_powerline_fonts = 1
+
+syntax on
+set t_Co=256
+set background=dark
+colo peaksea
+set laststatus=2
+hi LineNr ctermfg=237
+
+set cursorline
+
+function BgGray()
+  hi CursorLine term=NONE cterm=NONE guibg=Grey40 ctermbg=235
+  hi CursorLineNR term=NONE cterm=NONE guibg=Grey40 ctermbg=235
+endfunction
+
+function BgBlack()
+  hi CursorLine term=NONE cterm=NONE guibg=Grey40 ctermbg=233
+  hi CursorLineNR term=NONE cterm=NONE guibg=Grey40 ctermbg=233
+endfunction
+call BgGray()
+
+" script to change background color on enter/leave insert (broken)
+autocmd InsertLeave * :call BgGray()
+autocmd InsertEnter * :call BgBlack()
+
+autocmd BufEnter * set scrolloff=999
+
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+

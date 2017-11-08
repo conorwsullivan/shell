@@ -1,0 +1,11 @@
+vim/tmp
+vim/init.vim
+bashrc/local.sh
+.DS_Store
+bin/aws-credential-client
+bin/boxer
+bin/flake8
+bin/foober
+bin/py-find-injection
+bin/startup_local.sh
+config

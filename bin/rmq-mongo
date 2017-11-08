@@ -1,0 +1,4 @@
+rmq start
+cd ~/work/mongo/
+./mongo.sh
+

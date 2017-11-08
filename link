@@ -1,0 +1,37 @@
+#!/bin/bash
+
+DIR=$(pwd)
+echo "Updating from $DIR to $HOME"
+
+touch $DIR/bashrc/local.sh
+rm -rf $HOME/bashrc
+ln -sf $DIR/bashrc/bashrc $HOME/.bashrc
+ln -sf $DIR/bashrc/ $HOME/bashrc
+ln -sf $DIR/bashrc/inputrc $HOME/.inputrc
+echo "source ~/.bashrc" >> ~/.bash_profile
+
+rm -rf $HOME/.vim
+ln -sf $DIR/vim/ $HOME/.vim
+ln -sf $DIR/vim/vimrc $HOME/.vimrc
+mkdir -p $HOME/.config
+rm -rf $HOME/.config/nvim
+ln -sf $DIR/vim $HOME/.config/nvim
+ln -sf $DIR/vim/vimrc $HOME/.config/nvim/init.vim
+
+ln -sf $DIR/gitconfig $HOME/.gitconfig
+ln -sf $DIR/tmux.conf $HOME/.tmux.conf
+
+rm -rf $HOME/bin
+ln -sf $DIR/bin/ $HOME/bin
+
+rm -rf $HOME/.i3
+ln -sf $DIR/i3/ $HOME/.i3
+ln -sf $DIR/i3/statusconfig $HOME/.i3status.conf
+
+ln -sf $DIR/ackrc $HOME/.ackrc
+
+rm -rf $HOME/.xmonad
+ln -sf $DIR/xmonad/ $HOME/.xmonad
+
+
+
