@@ -52,22 +52,58 @@ nnoremap <backspace> hx
 " clear search highlight
 nnoremap <leader>/ :noh<cr>
 nnoremap <leader><space> 0d$
-nnoremap <leader><cr> g$i<cr><Esc>>>
+nnoremap <leader><cr> i<cr><Esc>>>
 
-" Handling a common typo
+" Handling some common typos
 nnoremap ;w :w
 nnoremap ;q :q
+nnoremap :Q :q
+nnoremap :W :w
+nnoremap ;Q :q
+nnoremap ;W :w
+nnoremap ;WQ :wq
+nnoremap ;QW :wq
+nnoremap :WQ :wq
+nnoremap :QW :wq
+nnoremap ;wQ :wq
+nnoremap ;qW :wq
+nnoremap :wQ :wq
+nnoremap :qW :wq
+nnoremap ;Wq :wq
+nnoremap ;Qw :wq
+nnoremap :Wq :wq
+nnoremap :Qq :wq
+nnoremap ;wq :wq
+nnoremap ;qw :wq
+nnoremap :qw :wq
+
+cnoremap ;w :w
+cnoremap ;q :q
+cnoremap :Q :q
+cnoremap :W :w
+cnoremap ;Q :q
+cnoremap ;W :w
+cnoremap ;WQ :wq
+cnoremap ;QW :wq
+cnoremap :WQ :wq
+cnoremap :QW :wq
+cnoremap ;wQ :wq
+cnoremap ;qW :wq
+cnoremap :wQ :wq
+cnoremap :qW :wq
+cnoremap ;Wq :wq
+cnoremap ;Qw :wq
+cnoremap :Wq :wq
+cnoremap :Qq :wq
+cnoremap ;wq :wq
+cnoremap ;qw :wq
+cnoremap :qw :wq
 
 " insert a pry
 nnoremap <leader>p Orequire 'pry'; binding.pry<Esc>
 
-" Q as q, W as w
-cnoremap Q q
-cnoremap W w
-
-" prevent d from overwriting yanks
 nnoremap y "+y
-vnoremap y "+y
+nnoremap yG vG:!xclip -f -sel clip<cr>
 nnoremap Y "+y$
 vnoremap Y "+y$
 nnoremap p "+p
@@ -131,6 +167,7 @@ set mouse=
 set ff=unix
 set fileformat=unix
 set fileformats=unix,dos
+set viminfo=!,'100,<1000,s10,h
 
 set nobackup
 set noswapfile
