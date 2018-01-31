@@ -20,7 +20,7 @@
   disc = "!f(){ git reset --hard HEAD && git clean -d; };f"
   force-push = push origin HEAD -uf
   push = push origin HEAD -u
-  last = log --name-status HEAD
+  last = log --name-status HEAD^..HEAD
   abort = rebase --abort
   unstage = reset
   undo = reset --hard HEAD^
