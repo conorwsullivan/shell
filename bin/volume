@@ -5,9 +5,14 @@ LEVEL=$(echo $VOLUME | cut -d " " -f4 | sed 's/[^0-9]//g')
 MUTE=$(echo $VOLUME | cut -d " " -f6)
 
 if [ $MUTE == "[on]" ] ; then
-  printf "♪ "
+  if [ $LEVEL -gt 50 ] ; then
+    printf "🔊 "
+  else
+    printf "🔉 "
+  fi
 else
-  printf "𝄽 "
+  printf "🔈 "
 fi
 
 printf $LEVEL
+
