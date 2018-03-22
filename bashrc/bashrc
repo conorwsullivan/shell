@@ -12,9 +12,9 @@ export PATH="$PATH:$HOME/bin" # Add a local place to put binaries so I don't hav
 
 source ~/bashrc/shell.sh
 source ~/bashrc/unix.sh
-source ~/bashrc/ruby.sh
+#source ~/bashrc/ruby.sh
 source ~/bashrc/go.sh
-source ~/bashrc/node.sh
+#source ~/bashrc/node.sh
 source ~/bashrc/git-completion.bash
 source ~/bashrc/alias.sh
 source ~/bashrc/chime.sh
