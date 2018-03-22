@@ -1,0 +1,39 @@
+#!/bin/bash
+
+url="http://www.moongiant.com/phase/today"
+pattern="Illumination:"
+phase="$( curl -s "$url" | grep "$pattern" | tr ',' '\
+' | grep "$pattern" | sed 's/[^0-9]//g')"
+
+doWaxWane=true
+
+if [ $phase -lt 5 ] ; then
+ phasename="New Moon"
+elif [ $phase -lt 45 ] ; then
+ phasename="Crescent"
+ doWaxWane=true
+elif [ $phase -lt 55 ] ; then
+ phasename="Quarter"
+ doWaxWane=true
+elif [ $phase -lt 95 ] ; then
+ phasename="Gibbous"
+ doWaxWane=true
+else
+ phasename="Full Moon"
+fi
+
+if [ doWaxWane ] ; then
+  yesterday=$( date -d "yesterday 13:00" '+%m/%d/%Y' )
+  url="http://www.moongiant.com/phase/$yesterday"
+  pattern="Illumination:"
+  lastPhase="$( curl -s "$url" | grep "$pattern" | tr ',' '\
+  ' | grep "$pattern" | sed 's/[^0-9]//g')"
+
+  if [ $lastPhase -lt $phase ] ; then
+    phasename="Waxing $phasename"
+  else
+    phasename="Waning $phasename"
+  fi
+fi
+
+echo $phasename
