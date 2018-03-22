@@ -157,8 +157,9 @@ bindsym $mod+l exec "gnome-screensaver-command --lock"
 
 bindsym $mod+equal exec --no-startup-id "pactl -- set-sink-volume 1 +2%"
 bindsym $mod+minus exec --no-startup-id "pactl -- set-sink-volume 1 -2%"
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 1 '-5%'
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 1 '+5%'
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 '-5%'
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 '+5%'
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
 #bindsym Prior exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 #bindsym Next exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
@@ -171,8 +172,8 @@ bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.m
 #exec --no-startup-id "~/start/keymap"
 #exec --no-startup-id "xrandr --output DP1-2 --auto --right-of DP1-1"
 #exec --no-startup-id "nm-applet &"
-exec --no-startup-id "gnome-sound-applet &"
-exec --no-startup-id "gnome-settings-daemon &"
+#exec --no-startup-id "gnome-sound-applet &"
+#exec --no-startup-id "gnome-settings-daemon &"
 #exec --no-startup-id "volti &"
 exec --no-startup-id "a &"
 exec --no-startup-id "startup_local.sh &"
