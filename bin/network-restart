@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Note: execute as sudo
+
+rm -f /var/lib/NetworkManager/NetworkManager.state
+service network-manager restart
