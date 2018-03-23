@@ -21,11 +21,19 @@ set $mod Mod1
 font pango:Droid Sans Mono Slashed 14
 #font pango:FreeType Sans 12
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #43aaaa #317b7b #ffffff #65ffff   #317b7b
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #888888
+
+focus_on_window_activation urgent
 focus_follows_mouse no
 mouse_warping none
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+workspace_layout tabbed
+#default_border normal 4
 
 # start a terminal
 bindsym $mod+Return exec lilyterm #"lilyterm -e \". ascinema rec terminal_log.json\""
@@ -77,9 +85,12 @@ bindsym $mod+g layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+floating_maximum_size 1600 x 1000
+floating_minimum_size 480 x 320
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -149,6 +160,24 @@ bindsym $mod+r mode "resize"
 bar {
   status_command ~/.i3/new_statusconfig
   #status_command i3status --config ~/.i3/statusconfig
+  #
+  bindsym button1 nop
+  bindsym button4 nop
+  bindsym button5 nop
+
+  separator_symbol " | "
+
+  colors {
+      background #000000
+      statusline #ffffff
+      separator #888888
+
+      focused_workspace  #43aaaa #317b7b #ffffff
+      active_workspace   #333333 #666666 #ffffff
+      inactive_workspace #333333 #222222 #888888
+      urgent_workspace   #222222 #cd3333 #ffffff
+      binding_mode       #222222 #cd3333 #ffffff
+  }
 }
 
 bindsym $mod+1 exec "chromium-browser"
