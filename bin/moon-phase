@@ -6,20 +6,27 @@ phase="$( curl -s "$url" | grep "$pattern" | tr ',' '\
 ' | grep "$pattern" | sed 's/[^0-9]//g')"
 
 doWaxWane=true
+phaseGroup=0
+isWaning=false
 
 if [ $phase -lt 5 ] ; then
  phasename="New Moon"
+ phaseGroup=0
 elif [ $phase -lt 45 ] ; then
  phasename="Crescent"
  doWaxWane=true
+ phaseGroup=1
 elif [ $phase -lt 55 ] ; then
  phasename="Quarter"
  doWaxWane=true
+ phaseGroup=2
 elif [ $phase -lt 95 ] ; then
  phasename="Gibbous"
  doWaxWane=true
+ phaseGroup=3
 else
  phasename="Full Moon"
+ phaseGroup=4
 fi
 
 if [ doWaxWane ] ; then
@@ -33,7 +40,35 @@ if [ doWaxWane ] ; then
     phasename="Waxing $phasename"
   else
     phasename="Waning $phasename"
+    isWaning=true
   fi
 fi
+
+# Using the opposite unicode symbols, new moon for full moon and full moon
+# for new moon and so on. This is because the script is intended for
+# white-on-black color schemes
+if [ $phaseGroup -eq 0 ] ; then
+  printf "🌕"
+elif [ $phaseGroup -eq 4 ] ; then
+  printf "🌑"
+elif [ $isWaning ] ; then
+  if [ $phaseGroup -eq 1 ] ; then
+    printf "🌖"
+  elif [ $phaseGroup -eq 2 ] ; then
+    printf "🌗"
+  elif [ $phaseGroup -eq 3 ] ; then
+    printf "🌘"
+  fi
+else
+  if [ $phaseGroup -eq 1 ] ; then
+    printf "🌒"
+  elif [ $phaseGroup -eq 2 ] ; then
+    printf "🌓"
+  elif [ $phaseGroup -eq 3 ] ; then
+    printf "🌔"
+  fi
+fi
+
+printf " "
 
 echo $phasename
