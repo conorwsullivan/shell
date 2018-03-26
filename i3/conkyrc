@@ -42,6 +42,7 @@ TEXT
     "color": "\#65ffff"},
   {"full_text": "RAM ${if_match ${memperc} < 10}0${endif}${memperc}%",
     "color": ${if_match ${memperc}<90}"\#65ffff"${else}"\#cd3333"${endif}},
+  {"full_text": "${execi 600 stocks}", "color": "\#33cd33"},
   {"full_text": "${execi 3600 moon-phase}", "color": "\#33cd33"},
   {"full_text": "${exec volume}", "color": "\#33cd33"},
   {"full_text": "${time %a %Y-%m-%d %H:%M:%S}", "color": "\#ffffff"}

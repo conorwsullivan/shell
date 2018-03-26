@@ -1,0 +1,19 @@
+#!/bin/sh
+
+RESPONSE=$(curl -s "https://api.iextrading.com/1.0/stock/spy/chart/1d?format=json")
+
+OPEN=$(echo $RESPONSE | jq '.[0].average')
+FINAL=$(echo $RESPONSE | jq '.[-1].average')
+
+IS_RISING=$(echo "$FINAL >= $OPEN" | bc);
+
+printf "SPY "
+
+if [ $IS_RISING -ne 0 ] ; then
+  printf "▲ "
+else
+  printf "▼ "
+fi
+
+echo $FINAL
+
