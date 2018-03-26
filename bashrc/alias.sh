@@ -14,4 +14,5 @@ alias bc="bc -l"
 alias feh="feh --fullscreen"
 alias src="source ~/.bashrc"
 alias cal="cal -3"
+alias py="python"
 
