@@ -46,7 +46,6 @@ workspace_layout tabbed
 
 bindsym $mod+Return exec termite
 
-
 # kill focused window
 bindsym $mod+Shift+Q kill
 
