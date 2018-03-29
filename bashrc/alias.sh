@@ -17,4 +17,5 @@ alias cal="cal -3"
 alias py="python"
 alias free="free -h"
 alias dd="dd status=progress"
+alias cp="cp -v"
 
