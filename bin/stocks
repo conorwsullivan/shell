@@ -6,6 +6,7 @@ OPEN=$(echo $RESPONSE | jq '.[0].average')
 FINAL=$(echo $RESPONSE | jq '.[-1].average')
 
 IS_RISING=$(echo "$FINAL >= $OPEN" | bc);
+FINAL=$(echo "scale=2; $FINAL * 10 / 1" | bc);
 
 printf "SPY "
 
