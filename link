@@ -33,5 +33,6 @@ ln -sf $DIR/ackrc $HOME/.ackrc
 rm -rf $HOME/.xmonad
 ln -sf $DIR/xmonad/ $HOME/.xmonad
 
-
+rm -rf $HOME/.config/termite
+ln -sf $DIR/termite $HOME/.config/termite
 
