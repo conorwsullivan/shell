@@ -1,4 +1,4 @@
-alias apt-get="aptitude"
+#alias apt-get="aptitude"
 alias apt-cache="aptitude"
 alias apt="aptitude"
 alias cdw="cd ~/work"
