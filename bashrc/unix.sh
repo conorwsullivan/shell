@@ -25,8 +25,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 #alias top='top -o cpu'
 
 # Default editor
-export VISUAL=/usr/local/bin/vim
-export EDITOR=/usr/local/bin/vim
+export VISUAL=nvim
+export EDITOR=nvim
 export TERMINAL=gnome-terminal
 export CDPATH=.,..,~/work
 
