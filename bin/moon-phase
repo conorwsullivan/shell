@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url="http://www.moongiant.com/phase/today"
+url="https://www.moongiant.com/phase/today"
 pattern="Illumination:"
 phase="$( curl -s "$url" | grep "$pattern" | tr ',' '\
 ' | grep "$pattern" | sed 's/[^0-9]//g')"
@@ -31,7 +31,7 @@ fi
 
 if [ doWaxWane ] ; then
   yesterday=$( date -d "yesterday 13:00" '+%m/%d/%Y' )
-  url="http://www.moongiant.com/phase/$yesterday"
+  url="https://www.moongiant.com/phase/$yesterday"
   pattern="Illumination:"
   lastPhase="$( curl -s "$url" | grep "$pattern" | tr ',' '\
   ' | grep "$pattern" | sed 's/[^0-9]//g')"
