@@ -4,6 +4,7 @@ alias apt="aptitude"
 alias cdw="cd ~/work"
 alias cds="cd ~/work/shell"
 alias cdns="cd ~/work/ogl_rename/playground"
+alias cda="cd /media/TheInfo/Art"
 alias v=nvim
 alias g=git
 alias gs="g s"
