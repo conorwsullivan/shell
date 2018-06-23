@@ -15,7 +15,6 @@ function git_color {
     printf $COLOR_RED
   elif [[ ! $git_status =~ "working directory clean" ]] && [[ ! $git_status =~ "working tree clean" ]]; then
     printf $COLOR_YELLOW
-  elif [[ ! $git_status =~ "up to date" ]]; then
   elif [[ ! $git_status =~ "up-to-date" ]] && [[ ! $git_status =~ "up to date" ]]; then
     printf $COLOR_GREEN
   elif [[ $git_status =~ "nothing to commit" ]]; then
