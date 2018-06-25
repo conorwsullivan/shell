@@ -175,7 +175,7 @@ bar {
   status_command ~/.i3/new_statusconfig
   #status_command i3status --config ~/.i3/statusconfig
 
-  bindsym button1 nop
+  #bindsym button1 nop
   bindsym button4 nop
   bindsym button5 nop
 
