@@ -150,16 +150,16 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-  bindsym h resize shrink width 10 px or 10 ppt
-  bindsym t resize grow height 10 px or 10 ppt
-  bindsym n resize shrink height 10 px or 10 ppt
-  bindsym s resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 5 px or 5 ppt
+  bindsym t resize grow height 5 px or 5 ppt
+  bindsym n resize shrink height 5 px or 5 ppt
+  bindsym s resize grow width 5 px or 5 ppt
 
   # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 5 px or 5 ppt
+  bindsym Down resize grow height 5 px or 5 ppt
+  bindsym Up resize shrink height 5 px or 5 ppt
+  bindsym Right resize grow width 5 px or 5 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -201,7 +201,8 @@ bar {
 
 for_window [title="Light Speed"] fullscreen enable
 
-bindsym $mod+1 exec "chromium-browser"
+#bindsym $mod+1 exec "chromium-browser"
+bindsym $mod+1 exec "~/palemoon/palemoon"
 bindsym $mod+2 exec "spotify"
 bindsym $mod+3 exec "thunar"
 bindsym $mod+l exec "gnome-screensaver-command --lock"
@@ -231,4 +232,12 @@ bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.m
 exec --no-startup-id "a &"
 exec --no-startup-id "startup_local.sh &"
 exec --no-startup-id "compton &"
+
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s noblank
+
+bindsym --release Ctrl+Shift+Comma exec --no-startup-id "xdotool keydown comma"
+bindsym --release Ctrl+Comma exec --no-startup-id "xdotool keyup comma"
+#bindsym Ctrl+Comma exec --no-startup-id "xdotool keyup comma"
 

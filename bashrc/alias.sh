@@ -1,10 +1,16 @@
+c() {
+  cd $1;
+  printf "\n\033[1;49;36m$PWD\033[0m\n"
+  ls;
+}
+
 #alias apt-get="aptitude"
 alias apt-cache="aptitude"
 alias apt="aptitude"
-alias cdw="cd ~/work"
-alias cds="cd ~/work/shell"
-alias cdns="cd ~/work/ogl_rename/playground"
-alias cda="cd /media/TheInfo/Art"
+alias cw="c ~/work"
+alias cs="c ~/work/shell"
+alias cns="c ~/work/ogl_rename/playground"
+alias ca="c /media/TheInfo/Art"
 alias v=nvim
 alias g=git
 alias gs="g s"

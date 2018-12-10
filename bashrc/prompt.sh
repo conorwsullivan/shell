@@ -32,14 +32,21 @@ function git_branch {
 
   if [[ $git_status =~ $on_branch ]]; then
     local branch=${BASH_REMATCH[1]}
-    printf "$branch$COLOR_RESET "
+    printf "$branch"
   elif [[ $git_status =~ $on_rebase ]]; then
     local branch=${BASH_REMATCH[1]}
-    printf "$branch$COLOR_RESET "
+    printf "$branch"
   elif [[ $git_status =~ $on_commit ]]; then
     local commit=${BASH_REMATCH[1]}
-    printf "$commit$COLOR_RESET "
+    printf "$commit"
   fi
+
+  local modifications="$(git status --short | wc -l | awk '{$1=$1};1' 2> /dev/null)"
+  if [[ $modifications != 0 ]]; then
+    printf " +$modifications"
+  fi
+
+  printf "$COLOR_RESET "
 }
 
 function git-status()

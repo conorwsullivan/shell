@@ -177,6 +177,7 @@ set noswapfile
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.shader set filetype=c
 autocmd BufNewFile,BufRead *.glsl set filetype=c
+autocmd BufNewFile,BufRead *.scad set filetype=c
 
 "let g:airline_left_sep = "" "use double quotes here
 "let g:airline_left_alt_sep = ""
