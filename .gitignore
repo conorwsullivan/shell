@@ -9,4 +9,4 @@ bin/flake8
 bin/foober
 bin/py-find-injection
 bin/startup_local.sh
-config/
+/config/

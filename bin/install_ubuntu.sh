@@ -2,7 +2,7 @@
 #sudo apt-get install software-properties-common
 #sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
-sudo apt-get install neovim golang
+sudo apt-get install neovim golang terminology
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 sudo update-alternatives --set vi /usr/bin/nvim
 sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
