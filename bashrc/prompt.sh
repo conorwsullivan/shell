@@ -41,7 +41,7 @@ function git_branch {
     printf "$commit"
   fi
 
-  local modifications="$(git status --short | wc -l | awk '{$1=$1};1' 2> /dev/null)"
+  local modifications="$(git status --short 2> /dev/null | wc -l | awk '{$1=$1};1')"
   if [[ $modifications != 0 ]]; then
     printf " +$modifications"
   fi
