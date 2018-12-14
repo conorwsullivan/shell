@@ -1,4 +1,3 @@
-let g:rust_recommended_style = 0
 execute pathogen#infect()
 
 if has("autocmd")
@@ -191,6 +190,7 @@ set background=dark
 colo peaksea
 set laststatus=2
 hi LineNr ctermfg=237
+let g:rust_recommended_style = 0
 
 set cursorline
 
@@ -212,10 +212,10 @@ autocmd InsertEnter * :call BgBlack()
 if has("folding")
   set foldenable        " enable folding
   set foldmethod=syntax
-  autocmd BufNewFile,BufRead *.js set foldmethod=indent
+  "autocmd BufNewFile,BufRead *.js set foldmethod=indent
   set foldlevel=0
   set foldcolumn=1
-  set foldnestmax=3
+  set foldnestmax=1
   set foldminlines=5
 
   "au BufWinLeave ?* mkview
