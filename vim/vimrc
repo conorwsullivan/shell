@@ -188,10 +188,13 @@ let g:airline_powerline_fonts = 1
 syntax on
 set t_Co=256
 set background=dark
-colo zendnb
 set laststatus=2
 hi LineNr ctermfg=237
 let g:rust_recommended_style = 0
+let g:rainbow_active = 1
+
+" shows highlight information for the character under the cursor
+:map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 set cursorline
 
@@ -267,7 +270,7 @@ autocmd InsertEnter * :call BgBlack()
   " endfunction
 " endif
 
-autocmd BufEnter * set scrolloff=999
+autocmd BufEnter * set scrolloff=10
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
