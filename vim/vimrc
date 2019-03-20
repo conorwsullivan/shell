@@ -167,6 +167,7 @@ set ff=unix
 set fileformat=unix
 set fileformats=unix,dos
 set viminfo=!,'100,<1000,s10,h
+set cinoptions+=L0
 
 set nobackup
 set noswapfile
@@ -187,7 +188,7 @@ let g:airline_powerline_fonts = 1
 syntax on
 set t_Co=256
 set background=dark
-colo peaksea
+colo zendnb
 set laststatus=2
 hi LineNr ctermfg=237
 let g:rust_recommended_style = 0
@@ -209,62 +210,62 @@ call BgGray()
 autocmd InsertLeave * :call BgGray()
 autocmd InsertEnter * :call BgBlack()
 
-if has("folding")
-  set foldenable        " enable folding
-  set foldmethod=syntax
+" if has("folding")
+  "set foldenable        " enable folding
+  " set foldmethod=syntax
   "autocmd BufNewFile,BufRead *.js set foldmethod=indent
-  set foldlevel=0
-  set foldcolumn=1
-  set foldnestmax=1
-  set foldminlines=5
-
-  "au BufWinLeave ?* mkview
-  "au BufWinEnter ?* silent loadview
-  au BufWinEnter ?* normal zv
-
-  highlight Folded ctermbg=233
-  highlight FoldColumn ctermbg=233
-
-  " toggle folds
-  nnoremap <Space> za
-  vnoremap <Space> za
-
-  set foldtext=FoldText()
-  function! FoldText()
-    let l:lpadding = &fdc
-    redir => l:signs
-      execute 'silent sign place buffer='.bufnr('%')
-    redir End
-    let l:lpadding += l:signs =~ 'id=' ? 2 : 0
-
-    if exists("+relativenumber")
-      if (&number)
-        let l:lpadding += max([&numberwidth, strlen(line('$'))]) + 1
-      elseif (&relativenumber)
-        let l:lpadding += max([&numberwidth, strlen(v:foldstart - line('w0')), strlen(line('w$') - v:foldstart), strlen(v:foldstart)]) + 1
-      endif
-    else
-      if (&number)
-        let l:lpadding += max([&numberwidth, strlen(line('$'))]) + 1
-      endif
-    endif
-
-    " expand tabs
-    let l:start = substitute(getline(v:foldstart), '\t', repeat(' ', &tabstop), 'g')
-    let l:end = substitute(substitute(getline(v:foldend), '\t', repeat(' ', &tabstop), 'g'), '^\s*', '', 'g')
-
-    let l:info = ' (' . (v:foldend - v:foldstart) . ')'
-    let l:infolen = strlen(substitute(l:info, '.', 'x', 'g'))
-    let l:width = winwidth(0) - l:lpadding - l:infolen
-
-    let l:separator = ' … '
-    let l:separatorlen = strlen(substitute(l:separator, '.', 'x', 'g'))
-    let l:start = strpart(l:start , 0, l:width - strlen(substitute(l:end, '.', 'x', 'g')) - l:separatorlen)
-    let l:text = l:start . ' … ' . l:end
-
-    return l:text . repeat(' ', l:width - strlen(substitute(l:text, ".", "x", "g"))) . l:info
-  endfunction
-endif
+  " set foldlevel=0
+  " set foldcolumn=1
+  " set foldnestmax=1
+  " set foldminlines=5
+" 
+  " "au BufWinLeave ?* mkview
+  " "au BufWinEnter ?* silent loadview
+  " au BufWinEnter ?* normal zv
+" 
+  " highlight Folded ctermbg=233
+  " highlight FoldColumn ctermbg=233
+" 
+  " " toggle folds
+  " nnoremap <Space> za
+  " vnoremap <Space> za
+" 
+  " set foldtext=FoldText()
+  " function! FoldText()
+    " let l:lpadding = &fdc
+    " redir => l:signs
+      " execute 'silent sign place buffer='.bufnr('%')
+    " redir End
+    " let l:lpadding += l:signs =~ 'id=' ? 2 : 0
+" " 
+    " if exists("+relativenumber")
+      " if (&number)
+        " let l:lpadding += max([&numberwidth, strlen(line('$'))]) + 1
+      " elseif (&relativenumber)
+        " let l:lpadding += max([&numberwidth, strlen(v:foldstart - line('w0')), strlen(line('w$') - v:foldstart), strlen(v:foldstart)]) + 1
+      " endif
+    " else
+      " if (&number)
+        " let l:lpadding += max([&numberwidth, strlen(line('$'))]) + 1
+      " endif
+    " endif
+" 
+    " " expand tabs
+    " let l:start = substitute(getline(v:foldstart), '\t', repeat(' ', &tabstop), 'g')
+    " let l:end = substitute(substitute(getline(v:foldend), '\t', repeat(' ', &tabstop), 'g'), '^\s*', '', 'g')
+" 
+    " let l:info = ' (' . (v:foldend - v:foldstart) . ')'
+    " let l:infolen = strlen(substitute(l:info, '.', 'x', 'g'))
+    " let l:width = winwidth(0) - l:lpadding - l:infolen
+" 
+    " let l:separator = ' … '
+    " let l:separatorlen = strlen(substitute(l:separator, '.', 'x', 'g'))
+    " let l:start = strpart(l:start , 0, l:width - strlen(substitute(l:end, '.', 'x', 'g')) - l:separatorlen)
+    " let l:text = l:start . ' … ' . l:end
+" 
+    " return l:text . repeat(' ', l:width - strlen(substitute(l:text, ".", "x", "g"))) . l:info
+  " endfunction
+" endif
 
 autocmd BufEnter * set scrolloff=999
 

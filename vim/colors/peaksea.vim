@@ -36,7 +36,6 @@ if exists("syntax_on")
   syntax reset
 endif
 
-set background=dark
 let g:colors_name = expand("<sfile>:t:r")
 
 " I don't want to abuse folding, but here folding is used to avoid confusion. 
@@ -155,7 +154,7 @@ if &background=='light'
 
     hi Normal		ctermfg=16	ctermbg=254	cterm=NONE
     " Comment/Uncomment the following line to disable/enable transparency
-    hi Normal		ctermfg=16	ctermbg=NONE	cterm=NONE
+    "hi Normal		ctermfg=16	ctermbg=NONE	cterm=NONE
     hi Search		ctermfg=NONE	ctermbg=231	cterm=NONE
     hi Visual		ctermfg=NONE	ctermbg=153	cterm=NONE
     hi Cursor		ctermfg=255	ctermbg=28	cterm=NONE
@@ -179,7 +178,7 @@ if &background=='light'
     hi SpecialKey	ctermfg=25	ctermbg=NONE	cterm=NONE
     hi NonText		ctermfg=18	ctermbg=252	cterm=NONE
     " Comment/Uncomment the following line to disable/enable transparency
-    hi NonText		ctermfg=18	ctermbg=NONE	cterm=NONE
+    "hi NonText		ctermfg=18	ctermbg=NONE	cterm=NONE
     hi Directory	ctermfg=133	ctermbg=NONE	cterm=NONE
     hi ErrorMsg		ctermfg=fg	ctermbg=216	cterm=NONE
     hi MoreMsg		ctermfg=64	ctermbg=NONE	cterm=NONE
@@ -492,7 +491,7 @@ elseif &background=='dark'
     " 256color dark terminal support here
     hi Normal		ctermfg=252	ctermbg=234	cterm=NONE
     " Comment/Uncomment the following line to disable/enable transparency
-    hi Normal		ctermfg=252	ctermbg=NONE	cterm=NONE
+    "hi Normal		ctermfg=252	ctermbg=NONE	cterm=NONE
     hi Comment		ctermfg=186	ctermbg=NONE	cterm=NONE
     hi Constant		ctermfg=110	ctermbg=NONE	cterm=NONE
     hi Number		ctermfg=179	ctermbg=NONE	cterm=NONE
@@ -516,7 +515,7 @@ elseif &background=='dark'
     hi SpecialKey	ctermfg=153	ctermbg=NONE	cterm=NONE
     hi NonText		ctermfg=69	ctermbg=233	cterm=NONE
     " Comment/Uncomment the following line to disable/enable transparency
-    hi NonText		ctermfg=69	ctermbg=NONE	cterm=NONE
+    "hi NonText		ctermfg=69	ctermbg=NONE	cterm=NONE
     hi Directory	ctermfg=110	ctermbg=NONE	cterm=NONE
     hi ErrorMsg		ctermfg=186	ctermbg=88	cterm=NONE
     hi MoreMsg		ctermfg=150	ctermbg=NONE	cterm=NONE
