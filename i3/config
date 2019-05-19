@@ -54,6 +54,7 @@ bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+Q kill
+bindsym $mod+Shift+X exec xkill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -204,7 +205,7 @@ for_window [title="Light Speed"] fullscreen enable
 #bindsym $mod+1 exec "chromium-browser"
 bindsym $mod+1 exec "~/palemoon/palemoon"
 bindsym $mod+2 exec "spotify"
-bindsym $mod+3 exec "thunar"
+bindsym $mod+3 exec "pcmanfm"
 bindsym $mod+l exec "gnome-screensaver-command --lock"
 
 bindsym $mod+b exec "toggle-mouse"

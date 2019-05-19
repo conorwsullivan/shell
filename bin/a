@@ -1,5 +1,5 @@
 #!/bin/bash
-setxkbmap -layout "us" -variant "dvorak"
+setxkbmap -layout "us" -variant "dvorak" option "terminate:ctrl-alt-bksp"
 
 xmodmap -e "keycode 22 = Caps_Lock"
 xmodmap -e "keycode 66 = BackSpace"

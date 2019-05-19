@@ -168,6 +168,7 @@ set fileformat=unix
 set fileformats=unix,dos
 set viminfo=!,'100,<1000,s10,h
 set cinoptions+=L0
+set cinkeys=0{,0},0),:,!^F,o,O,e
 
 set nobackup
 set noswapfile
@@ -270,7 +271,7 @@ autocmd InsertEnter * :call BgBlack()
   " endfunction
 " endif
 
-autocmd BufEnter * set scrolloff=10
+autocmd BufEnter * set scrolloff=9999
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
