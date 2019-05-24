@@ -76,7 +76,7 @@ color14 = #93e0e3
 color15 = #ffffff
 
 [hints]
-font = DroidSansMono Nerd Font Mono 14
+#font = DroidSansMono Nerd Font Mono 14
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
