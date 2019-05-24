@@ -19,7 +19,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 #font pango:Droid Sans Mono Slashed 14
-font pango:Cousine NF 14
+font pango:Cousine 14
 #font pango:FreeType Sans 12
 
 for_window [class="^.*"] border pixel 2
@@ -202,10 +202,10 @@ bar {
 
 for_window [title="Light Speed"] fullscreen enable
 
-#bindsym $mod+1 exec "chromium-browser"
-bindsym $mod+1 exec "~/palemoon/palemoon"
+bindsym $mod+1 exec "chromium"
+#bindsym $mod+1 exec "~/palemoon/palemoon"
 bindsym $mod+2 exec "spotify"
-bindsym $mod+3 exec "pcmanfm"
+bindsym $mod+3 exec "nautilus"
 bindsym $mod+l exec "gnome-screensaver-command --lock"
 
 bindsym $mod+b exec "toggle-mouse"

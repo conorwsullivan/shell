@@ -25,7 +25,9 @@ rm -rf $HOME/bin
 ln -sf $DIR/bin/ $HOME/bin
 
 rm -rf $HOME/.i3
+rm -rf $HOME/.config/i3
 ln -sf $DIR/i3/ $HOME/.i3
+ln -sf $DIR/i3/ $HOME/.config/i3
 ln -sf $DIR/i3/statusconfig $HOME/.i3status.conf
 
 ln -sf $DIR/ackrc $HOME/.ackrc

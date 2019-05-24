@@ -27,7 +27,7 @@
   f = fetch
 [core]
   trustctime = false
-  editor = /usr/local/bin/vim
+  editor = /usr/bin/vim
 	whitespace = cr-at-eol
 [diff]
   tool = vimdiff
