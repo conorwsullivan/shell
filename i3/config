@@ -230,8 +230,8 @@ bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.m
 #exec --no-startup-id "gnome-sound-applet &"
 #exec --no-startup-id "gnome-settings-daemon &"
 #exec --no-startup-id "volti &"
-exec --no-startup-id "a &"
-exec --no-startup-id "startup_local.sh &"
+#exec --no-startup-id "a &"
+exec --no-startup-id "~/bin/startup_local.sh &"
 exec --no-startup-id "compton &"
 
 exec --no-startup-id xset s off

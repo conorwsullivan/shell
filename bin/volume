@@ -4,15 +4,16 @@ VOLUME=$(amixer -c 0 get Master | grep Mono:)
 LEVEL=$(echo $VOLUME | cut -d " " -f4 | sed 's/[^0-9]//g')
 MUTE=$(echo $VOLUME | cut -d " " -f6)
 
+
 if [ $MUTE == "[on]" ] ; then
+  printf $LEVEL
   if [ $LEVEL -gt 50 ] ; then
-    printf "🔊 "
+    printf " ♫"
   else
-    printf "🔉 "
+    printf " ♪"
   fi
 else
-  printf "🔈 "
+  printf "MUTE"
 fi
 
-printf $LEVEL
 
