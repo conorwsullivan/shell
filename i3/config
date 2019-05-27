@@ -19,7 +19,8 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 #font pango:Droid Sans Mono Slashed 14
-font pango:Cousine 14
+#font pango:Cousine 14
+font pango:Monospace 14
 #font pango:FreeType Sans 12
 
 for_window [class="^.*"] border pixel 2
