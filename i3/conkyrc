@@ -1,40 +1,69 @@
-out_to_x no
-own_window no
-out_to_console yes
-background no
-max_text_width 0
+--[[
+Conky, a system monitor, based on torsmo
 
-# Update interval in seconds
-update_interval 1.0
+Any original torsmo code is licensed under the BSD license
 
-# This is the number of times Conky will update before quitting.
-# Set to zero to run forever.
-total_run_times 0
+All code written since the fork of torsmo is licensed under the GPL
 
-# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
-short_units yes
+Please see COPYING for details
 
-# How strict should if_up be when testing an interface for being up?
-# The value is one of up, link or address, to check for the interface
-# being solely up, being up and having link or being up, having link
-# and an assigned IP address. 
-if_up_strictness address
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2019 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
 
-# Add spaces to keep things from moving about?  This only affects certain objects.
-# use_spacer should have an argument of left, right, or none
-use_spacer left
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-# Force UTF8? note that UTF8 support required XFT
-override_utf8_locale no
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
 
-# number of cpu samples to average
-# set to 1 to disable averaging
-cpu_avg_samples 2
+conky.config = {
+    alignment = 'top_left',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'DejaVu Sans Mono:size=12',
+    gap_x = 60,
+    gap_y = 60,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = true,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = false,
+    own_window = false,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    short_units = true,
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'left',
+    use_xft = true,
+}
 
-# Stuff after 'TEXT' will be formatted on screen
-TEXT
-
-# JSON for i3bar
+-- JSON for i3bar
+conky.text = [[
 [
   {"full_text": "/${fs_free /}", "color": "\#ffff65"},
   {"full_text": "/info${fs_free /info}", "color": "\#ffff65"},
@@ -50,3 +79,5 @@ TEXT
   {"full_text": "${exec ~/bin/volume}", "color": "\#33cd33"},
   {"full_text": "${time %a %Y-%m-%d %H:%M:%S}", "color": "\#ffffff"}
 ],
+]]
+

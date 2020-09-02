@@ -23,7 +23,7 @@ set $mod Mod4
 font pango:Monospace 14
 #font pango:FreeType Sans 12
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 gaps inner 8
 gaps outer 0
 smart_gaps on
@@ -142,7 +142,7 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exec "i3-msg exit"
+#bindsym $mod+Shift+E exec "i3-msg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -203,13 +203,19 @@ bar {
 
 for_window [title="Light Speed"] fullscreen enable
 
-bindsym $mod+1 exec "chromium"
 #bindsym $mod+1 exec "~/palemoon/palemoon"
-bindsym $mod+2 exec "spotify"
+bindsym $mod+1 exec "firefox"
+bindsym $mod+2 exec "chromium"
 bindsym $mod+3 exec "nautilus"
+bindsym $mod+4 exec "spotify"
 bindsym $mod+l exec "gnome-screensaver-command --lock"
+bindsym F12 exec "~/bin/snap-website.sh"
 
 bindsym $mod+b exec "toggle-mouse"
+
+#bindsym --release Ctrl+Shift+Comma exec --no-startup-id "xdotool keydown comma"
+#bindsym --release Ctrl+Comma exec --no-startup-id "xdotool keyup comma"
+#bindsym Ctrl+Comma exec --no-startup-id "xdotool keyup comma"
 
 bindsym $mod+equal exec --no-startup-id "pactl -- set-sink-volume 1 +2%"
 bindsym $mod+minus exec --no-startup-id "pactl -- set-sink-volume 1 -2%"
@@ -225,21 +231,21 @@ bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.m
 bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 
+exec_always --no-startup-id xrdb -load ~/.Xresources
+
 #exec --no-startup-id "~/start/keymap"
 #exec --no-startup-id "xrandr --output DP1-2 --auto --right-of DP1-1"
 #exec --no-startup-id "nm-applet &"
 #exec --no-startup-id "gnome-sound-applet &"
 #exec --no-startup-id "gnome-settings-daemon &"
 #exec --no-startup-id "volti &"
-#exec --no-startup-id "a &"
+exec --no-startup-id "~/bin/a &"
 exec --no-startup-id "~/bin/startup_local.sh &"
-exec --no-startup-id "compton &"
+exec --no-startup-id "picom --backend glx --vsync=true &"
+exec --no-startup-id "parcellite"
+#exec --no-startup-id autotiling
 
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s noblank
-
-bindsym --release Ctrl+Shift+Comma exec --no-startup-id "xdotool keydown comma"
-bindsym --release Ctrl+Comma exec --no-startup-id "xdotool keyup comma"
-#bindsym Ctrl+Comma exec --no-startup-id "xdotool keyup comma"
 
