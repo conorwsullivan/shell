@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd ~/work/debootstrap/ubuntu/home/ubuntu/work/newcity/src
+
+#sudo chroot ~/work/debootstrap/ubuntu /bin/su - ubuntu #/home/ubuntu/bin/cnc_bash
+#sudo chroot ~/work/debootstrap/ubuntu /bin/bash -x << 'EOF'
+#su - ubuntu
+#/home/ubuntu/bin/cnc
+#/bin/bash
+#EOF
+
+#chroot_dir=~/work/debootstrap/ubuntu
+#working_dir=/home/ubuntu/work/newcity/src
+
+#sudo chroot "${chroot_dir}" sh -c "cd ${working_dir} ; su - ubuntu"
+

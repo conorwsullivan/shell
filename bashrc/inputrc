@@ -1,6 +1,6 @@
 set editing-mode vi
 set show-all-if-ambiguous on
-set completion-ignore-case off
+set completion-ignore-case on
 
 $if mode=vi
   set keymap vi-move

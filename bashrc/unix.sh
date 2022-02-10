@@ -55,3 +55,6 @@ _cht_complete()
     return 0
 }
 complete -F _cht_complete cht.sh
+
+unset QT_STYLE_OVERRIDE
+export QT_QPA_PLATFORMTHEME=qt5ct

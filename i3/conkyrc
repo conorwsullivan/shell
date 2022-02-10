@@ -65,16 +65,14 @@ conky.config = {
 -- JSON for i3bar
 conky.text = [[
 [
-  {"full_text": "/${fs_free /}", "color": "\#ffff65"},
-  {"full_text": "/info${fs_free /info}", "color": "\#ffff65"},
-  {"full_text": "/data${fs_free /data}", "color": "\#ffff65"},
+  {"full_text": "/ ${fs_free /}", "color": "\#ffff65"},
+  {"full_text": "/data ${fs_free /data}", "color": "\#ffff65"},
   {"full_text": "CPU ${if_match ${cpu} < 10}0${endif}${cpu}%",
     "color": "\#65ffff"},
   {"full_text": "RAM ${if_match ${memperc} < 10}0${endif}${memperc}%",
     "color": ${if_match ${memperc}<90}"\#65ffff"${else}"\#cd3333"${endif}},
   {"full_text": "TEMP${hwmon 2 temp 1}C",
     "color": ${if_match ${hwmon 2 temp 1}<70}"\#65ffff"${else}"\#cd3333"${endif}},
-  {"full_text": "${execi 600 ~/bin/stocks}", "color": "\#33cd33"},
   {"full_text": "${execi 3600 ~/bin/moon-phase}", "color": "\#33cd33"},
   {"full_text": "${exec ~/bin/volume}", "color": "\#33cd33"},
   {"full_text": "${time %a %Y-%m-%d %H:%M:%S}", "color": "\#ffffff"}

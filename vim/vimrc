@@ -12,21 +12,29 @@ noremap l t
 
 " movement
 noremap h h
-noremap t k
-noremap n j
+noremap t gk
+noremap n gj
 noremap s l
+
+onoremap t k
+onoremap n j
 
 " disable cursor keys
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
-nnoremap j n
-nnoremap k N
 imap <Left> <Nop>
 imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
+map <S-Left> <Nop>
+map <S-Right> <Nop>
+map <S-Up> <Nop>
+map <S-Down> <Nop>
+
+nnoremap j n
+nnoremap k N
 
 " custom escape as tab
 inoremap <Tab> <Esc>
@@ -47,6 +55,8 @@ nnoremap <backspace> hx
 " use PCRE
 "nnoremap / /\v
 "vnoremap / /\v
+nnoremap / /\c
+vnoremap / /\c
 
 " clear search highlight
 nnoremap <leader>/ :noh<cr>
@@ -102,7 +112,7 @@ cnoremap :qw :wq
 nnoremap <leader>p Orequire 'pry'; binding.pry<Esc>
 
 nnoremap y "+y
-nnoremap yG vG:!xclip -f -sel clip<cr>
+" nnoremap yG vG:!xclip -f -sel clip<cr>
 nnoremap Y "+y$
 vnoremap Y "+y$
 nnoremap p "+p
@@ -151,6 +161,9 @@ set gdefault
 set virtualedit=block
 set shortmess+=I
 set linebreak
+set breakindent
+set breakindentopt=shift:2
+set showbreak=
 set wrap
 set ruler
 set list listchars=tab:»\ ,trail:·
@@ -167,7 +180,8 @@ set ff=unix
 set fileformat=unix
 set fileformats=unix,dos
 set viminfo=!,'100,<1000,s10,h
-set cinoptions+=L0
+set cinoptions=l1
+"set cinoptions+=L0
 set cinkeys=0{,0},0),:,!^F,o,O,e
 
 set nobackup

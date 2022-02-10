@@ -93,6 +93,8 @@ prompt_command() {
   RPWD=$(echo $RPWD | perl -pe 's/~\/Uber\/sync\/([^\/]*).dev.uber.com$/$1:\//')
   RPWD=$(echo $RPWD | perl -pe 's/~\/Uber\/sync\/([^\/]*).dev.uber.com(\/.*)?/$1:$2/')
   RPWD=$(echo $RPWD | perl -pe 's/\/home\/uber/~/')
+  RPWD=$(echo $RPWD | perl -pe 's/~\/work\/debootstrap\/ubuntu\/home\/ubuntu/ubuntu:~/')
+
   printf "\n$BGCOLOR_WHITE`prompt`\e[0;2;49;37m `datetime`\e[0m `whoami`@`hostname` `git-status`\n$BGCOLOR_WHITE       \e[0;2;49;37m $COLOR_BLUE${RPWD/#$HOME/~}\e[0m\n"
 }
 datetime() {

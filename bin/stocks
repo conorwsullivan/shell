@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RESPONSE=$(curl -s "https://api.iextrading.com/1.0/stock/spy/chart/1d?format=json")
+RESPONSE=$(curl -s "https://ws-api.iextrading.com/1.0/tops?symbols=spy")
 
 OPEN=$(echo $RESPONSE | jq '.[0].average')
 FINAL=$(echo $RESPONSE | jq '.[-1].average')

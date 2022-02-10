@@ -2,7 +2,7 @@
 #sudo apt-get install software-properties-common
 #sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
-sudo apt-get install neovim golang terminology
+sudo apt-get install -y neovim golang terminology git build-essential gtk-doc-tools g++ libgtk-3-dev gtk-doc-tools gnutls-bin valac intltool libpcre2-dev libglib3.0-cil-dev libgnutls28-dev libgirepository1.0-dev libxml2-utils gperf libgtk2.0-dev gnome-devel
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 sudo update-alternatives --set vi /usr/bin/nvim
 sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
@@ -19,8 +19,8 @@ ln -s /usr/bin/nvim /usr/local/bin/vim
 
 # Termite
 cd ~/work
-git clone --recursive https://github.com/thestinger/termite.git
-git clone https://github.com/thestinger/vte-ng.git
+#git clone --recursive https://github.com/thestinger/termite.git
+#git clone https://github.com/thestinger/vte-ng.git
 
 echo export LIBRARY_PATH="/usr/include/gtk-3.0:$LIBRARY_PATH"
 cd vte-ng && ./autogen.sh && make && sudo make install

@@ -2,7 +2,7 @@
   email = conorwsullivan@gmail.com
   name = Conor Sullivan
 [push]
-  default = current
+	default = current
 [alias]
   ch = checkout
   co = commit
@@ -10,11 +10,13 @@
   amend = commit --amend
   s = status -s
   b = branch
+  pick = cherry-pick
   lf = log master.. --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p
   ls = log --pretty=oneline --abbrev-commit master..
   df = diff
   dfc = diff --cached
   dfl = diff HEAD^ HEAD
+  list = show --stat
   cont = rebase --continue
   hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   disc = "!f(){ git reset --hard HEAD && git clean -d; };f"
@@ -27,7 +29,7 @@
   f = fetch
 [core]
   trustctime = false
-  editor = /usr/bin/vim
+  editor = /usr/bin/nvim
 	whitespace = cr-at-eol
 [diff]
   tool = vimdiff
@@ -36,13 +38,10 @@
 [clean]
   requireForce = false
 [branch]
-  autosetuprebase = always
+  autosetuprebase = never
 [rerere]
   enabled = true
 [color]
   ui = auto
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+[pull]
+	rebase = false

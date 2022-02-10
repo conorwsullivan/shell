@@ -7,4 +7,9 @@
 --ignore-dir=dist-client
 --ignore-dir=coverage
 --ignore-dir=target
+--ignore-file=match:massif.out.*
+--ignore-file=match:callgrind.out
+--ignore-file=match:xtmemory.kcg.*
+--ignore-file=match:game_log.log*
+--ignore-file=match:game_log.*.log
 
