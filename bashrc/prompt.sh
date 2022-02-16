@@ -75,6 +75,7 @@ prompt()
     echo -e " =^-^= " # Happy happy!
   fi
 }
+
 fix_newline() {
   #echo ""
   local curpos
@@ -82,6 +83,7 @@ fix_newline() {
   IFS=";" read -sdR -a curpos
   ((curpos[1]!=1)) && echo -e '\E[0m'
 }
+
 prompt_command() {
   LAST_STATUS=$?
   fix_newline
@@ -96,17 +98,21 @@ prompt_command() {
   RPWD=$(echo $RPWD | perl -pe 's/~\/work\/debootstrap\/ubuntu\/home\/ubuntu/ubuntu:~/')
 
   printf "\n$BGCOLOR_WHITE`prompt`\e[0;2;49;37m `datetime`\e[0m `whoami`@`hostname`\n$BGCOLOR_WHITE       \e[0;2;49;37m$COLOR_BLUE ${RPWD/#$HOME/~} \e[0m`git-status`\n"
+
+  HISTORY_NUM=$(history | tail -1 | cut -d ' ' -f 2)
+  let HISTORY_NUM+=1
+  HISTORY_NUM=$(printf "% 6d " $HISTORY_NUM)
+
+  PS1=$(printf "\[\e[7;49;39m\]$HISTORY_NUM\[\e[0m\] ")
+  #PS1='\[\e[7;49;39m\]       \[\e[0m\] '
+  PS2='\[\e[7;49;39m\]       \[\e[0m\] '
 }
+
 datetime() {
   date +"%Y-%m-%d %H:%M:%S"
 }
+
 PROMPT_COMMAND=prompt_command
-HISTORY_NUM=$(history | tail -1 | cut -d ' ' -f 2)
-let HISTORY_NUM+=1
-HISTORY_NUM=$(printf "% 6d " $HISTORY_NUM)
-PS1=$(printf "\[\e[7;49;39m\]$HISTORY_NUM\[\e[0m\] ")
-#PS1='\[\e[7;49;39m\]       \[\e[0m\] '
-PS2='\[\e[7;49;39m\]       \[\e[0m\] '
 
 printf "\e[7;49;39m\n"
 printf "                             \n"
