@@ -248,6 +248,7 @@ exec_always /home/lone-pine/bin/startup_local.sh
 #exec --no-startup-id "picom --backend glx --vsync=true &"
 exec --no-startup-id "parcellite"
 exec --no-startup-id "xhost +local:"
+exec termite
 #exec --no-startup-id autotiling
 
 exec --no-startup-id xset s off
